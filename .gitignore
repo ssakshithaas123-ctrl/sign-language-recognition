@@ -1,0 +1,14 @@
+mediapipe_env/
+venv/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+landmark_dataset.npz
+landmark_dataset_normalized.npz
+landmark_normalization.npz
+best_landmark_model.keras
+best_normalized_landmark_model.keras
+landmark_sign_language_model.keras
+test_A.jpg
+webcam_A_test.jpg
+model/sign_language_model.keras
