@@ -5,6 +5,7 @@ import tensorflow as tf
 import mediapipe as mp
 import av
 import time
+import os
 
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 
@@ -699,3 +700,42 @@ Hand Gesture → Recognition → Text
 
 </div>
 """, unsafe_allow_html=True)
+
+# ============================================
+# SIGN REFERENCE
+# ============================================
+
+st.markdown("---")
+
+st.header("Sign Reference")
+
+st.write("Use these reference signs when practicing A–Z gestures.")
+
+reference_path = os.path.join(
+    os.path.dirname(__file__),
+    "sign_reference"
+)
+
+letters = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+cols = st.columns(5)
+
+for i, letter in enumerate(letters):
+
+    image_path = os.path.join(
+        reference_path,
+        f"{letter}.jpg"
+    )
+
+    with cols[i % 5]:
+
+        if os.path.exists(image_path):
+
+            st.image(
+                image_path,
+                caption=letter,
+                use_container_width=True
+            )
+
+        else:
+            st.write(f"{letter}")
